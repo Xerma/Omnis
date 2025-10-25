@@ -1,0 +1,3 @@
+app hub gets all application files and allows the user to manually pick, add all, or search all -> add selected (add all found button)
+
+password manager (all stored locally - safe) - allows to randomly generate passwords for apps and store them locally. Add functionality to add new password (if you want to use it for websites)

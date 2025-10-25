@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Omnis.UserControls.MainNavAppHub"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Omnis.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image Source="/Omnis;component/Images/Icons/MainTabControl/AppHub.png"/>
+        <TextBlock Grid.Column="1"
+                   Text="App Hub"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="22"
+                   FontWeight="Medium"
+                   Margin="15,0"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>Omnis</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Icons\MainTabControl\AppHub.png" />
+    <None Remove="Images\Icons\MainTabControl\PasswordManager.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Icons\MainTabControl\AppHub.png" />
+    <Resource Include="Images\Icons\MainTabControl\PasswordManager.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Scripts\Managers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="9.0.3" />
+    <PackageReference Include="Vanara.Windows.Shell" Version="4.1.1" />
+  </ItemGroup>
+
+</Project>
