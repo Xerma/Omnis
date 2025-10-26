@@ -3,32 +3,41 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Omnis.UserControls"
+        xmlns:controls="clr-namespace:Omnis.UserControls"
+        xmlns:pages="clr-namespace:Omnis.Pages"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="880" Width="1720">
-    <Grid>
-        <TabControl Style="{StaticResource MainTabControl}">
-            <TabItem x:Name="AppHub">
-                <TabItem.Header>
-                    <local:MainNavAppHub/>
-                </TabItem.Header>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition x:Name="AppHubToolBar" Height="50"/>
-                        <RowDefinition x:Name="AppHubMain"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock>App Hub</TextBlock>
-                </Grid>
-            </TabItem>
-            <TabItem x:Name="PasswordManager">
-                <TabItem.Header>
-                    <Image Source="/Omnis;component/Images/Icons/MainTabControl/PasswordManager.png"/>
-                </TabItem.Header>
-                <Grid>
-                    <TextBlock>Password Manager</TextBlock>
-                </Grid>
-            </TabItem>
-        </TabControl>
-    </Grid>
+    <Border Style="{StaticResource AppBorder}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220" x:Name="NavBar"/>
+                <ColumnDefinition Width="*" x:Name="ContentViewer"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+
+                <ListBox x:Name="NavList" Grid.Row="1"
+                         BorderThickness="0"
+                         SelectionChanged="NavList_SelectionChanged">
+                    <ListBoxItem Tag="{x:Type pages:AppHubPage}">
+                        <controls:NavItem Title="App Hub" IconSource="{DynamicResource AppHubIcon}"/>
+                    </ListBoxItem>
+                    <ListBoxItem Tag="{x:Type pages:VaultPage}">
+                        <controls:NavItem Title="Vault" IconSource="{DynamicResource PasswordManagerIcon}"/>
+                    </ListBoxItem>
+                </ListBox>
+
+                <TextBlock Grid.Row="2" HorizontalAlignment="Center">Version: 0.0.0</TextBlock>
+            </Grid>
+
+            <Frame Grid.Column="1"
+                   NavigationUIVisibility="Hidden"
+                   x:Name="ContentFrame"/>
+        </Grid>
+    </Border>
 </Window>

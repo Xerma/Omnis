@@ -21,6 +21,7 @@ namespace Omnis
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += (_, _) => NavList.SelectedIndex = 0;
         }
 
         private void AppSearch_Directory(object sender, RoutedEventArgs e)
@@ -35,6 +36,22 @@ namespace Omnis
         private void UpdateAppStatus()
         {
 
+        }
+
+        private void NavList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (NavList.SelectedItem is not ListBoxItem item) return;
+            if (item.Tag is Type pageType)
+            {
+                Page page = (Page)Activator.CreateInstance(pageType);
+                ContentFrame.Navigate(page);
+                ContentFrame.NavigationService.RemoveBackEntry();
+            }
+            else if (item.Tag is string uri)
+            {
+                ContentFrame.Navigate(new Uri(uri, UriKind.RelativeOrAbsolute));
+                ContentFrame.NavigationService.RemoveBackEntry();
+            }
         }
     }
 }
