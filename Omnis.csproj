@@ -10,16 +10,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\Icons\MainTabControl\AppHub.png" />
-    <None Remove="Images\Icons\MainTabControl\PasswordManager.png" />
+    <None Remove="Assets\Icons\MainTabControl\AppHub.png" />
+    <None Remove="Assets\Icons\MainTabControl\PasswordManager.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\Icons\MainTabControl\AppHub.png" />
-    <Resource Include="Images\Icons\MainTabControl\PasswordManager.png" />
+    <Resource Include="Assets\Icons\MainTabControl\AppHub.png" />
+    <Resource Include="Assets\Icons\MainTabControl\PasswordManager.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Assets\Icons\SVG\" />
     <Folder Include="Data\" />
     <Folder Include="Scripts\Managers\" />
   </ItemGroup>
